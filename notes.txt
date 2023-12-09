@@ -1,0 +1,40 @@
+----------------
+December 6, 2023
+----------------
+
+
+  option: webcomponent/js, iterative, shared state
+    list of js strings: lst
+    eval(lst.join(';'))
+    make MVP and use it to build itself
+
+    make a function that creates a custom element class and adds it to a manifest
+      the function takes as parameter:
+        an html object
+        the html object has 'tagname' or 'innerHTML'
+
+    custom elements take in attributes, children, layout as params
+    css attributes object { attribute-name: attribute-value }
+    ? layouts vs. nodes
+
+    listeners object { event-name: listener }
+
+    scoped variables --> VARS(var-name, scope-name), get/set, anonymous update function with current value as param
+
+    nodes subscribe to changes in VARS and define how to handle them
+
+
+
+  option: html/css/js, codepen
+
+
+  eval with persistent context:
+    var __EVAL = s => eval(`void (__EVAL = ${__EVAL.toString()}); ${s}`);
+    function evaluate(expr) {
+      try {
+        const result = __EVAL(expr);
+        console.log(expr, '===>', result)
+      } catch(err) {
+        console.log(expr, 'ERROR:', err.message)
+      }
+    }
